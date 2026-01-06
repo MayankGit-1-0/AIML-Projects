@@ -9,7 +9,7 @@ Welcome to my AI/ML portfolio! This repository serves as a collection of my mach
 | **[House Price Prediction](./House_Price_Prediction)** | Regression | A model to predict housing prices based on features like location, size, and amenities. |
 | **[Movie Recommendation System](./MovieRecom)** | Recommender | A content-based/collaborative filtering system to suggest movies to users. |
 | **[Movie Review Analysis](./MovieReview)** | NLP / Sentiment | Natural Language Processing project to classify movie reviews (Positive/Negative). |
-| **[LSTM RNN](./LSTM%20RNN)** | Deep Learning | implementation of Long Short-Term Memory (LSTM) networks for sequence data. | Predicting next word for Hamlet dataset. |
+| **[LSTM RNN](./LSTM%20RNN)** | Deep Learning | implementation of Long Short-Term Memory (LSTM) networks for sequence data. Predicting next word for Hamlet dataset. |
 
 ---
 

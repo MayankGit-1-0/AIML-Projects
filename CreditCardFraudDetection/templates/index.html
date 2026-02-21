@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card Fraud Detection — ML Model Comparison</title>
+  <meta name="description" content="Compare Random Forest, KNN, SVM, and Gradient Boosting models for credit card fraud detection. Interactive dashboard with real-time predictions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p class="loader-text">Training models & loading metrics …</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <header class="hero fade-in">
+      <h1>Credit Card Fraud Detection</h1>
+      <p>Comparing 4 machine-learning models on real-world transaction data. Click any card to explore, or scroll down to predict.</p>
+    </header>
+
+    <!-- Best Model Banner -->
+    <div class="best-banner fade-in">
+      <div class="best-banner-inner">
+        <span class="trophy">🏆</span>
+        <div class="best-info">
+          <h3>Best Performing Model</h3>
+          <span id="best-name" class="best-name">—</span>
+        </div>
+        <div class="best-f1">
+          <div id="best-f1-val" class="value">—</div>
+          <div class="label">F1 Score</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Comparison Cards -->
+    <h2 class="section-title"><span class="icon">📊</span> Model Comparison</h2>
+    <div id="models-grid" class="models-grid">
+      <!-- JS renders cards here -->
+    </div>
+
+    <!-- Detail Section: Confusion Matrix + Active Model Metrics -->
+    <h2 class="section-title"><span class="icon">🔍</span> Selected Model: <span id="detail-model-name">—</span></h2>
+    <div class="detail-section">
+      <div class="glass-panel">
+        <h3 style="font-size:1rem; margin-bottom:8px; color:var(--text-secondary);">Confusion Matrix</h3>
+        <div class="cm-grid">
+          <div class="cm-cell tn"><small>True Neg</small><span id="cm-tn">–</span></div>
+          <div class="cm-cell fp"><small>False Pos</small><span id="cm-fp">–</span></div>
+          <div class="cm-cell fn"><small>False Neg</small><span id="cm-fn">–</span></div>
+          <div class="cm-cell tp"><small>True Pos</small><span id="cm-tp">–</span></div>
+        </div>
+        <div class="cm-labels">
+          <span>🟩 Correct</span>
+          <span>🟥 Incorrect</span>
+        </div>
+      </div>
+      <div class="glass-panel">
+        <h3 style="font-size:1rem; margin-bottom:16px; color:var(--text-secondary);">Performance Metrics</h3>
+        <div id="active-metrics-summary"><!-- JS --></div>
+      </div>
+    </div>
+
+    <!-- Prediction Section -->
+    <div class="predict-section">
+      <h2 class="section-title"><span class="icon">⚡</span> Predict a Transaction</h2>
+      <p style="color:var(--text-secondary); margin-bottom:20px; font-size:0.95rem;">
+        Enter feature values below (or load sample data) and hit <strong>Predict</strong>. The selected model above will be used.
+      </p>
+
+      <div id="predict-form" class="predict-form">
+        <!-- JS builds inputs -->
+      </div>
+
+      <div style="margin-top:16px;">
+        <button class="btn-predict" onclick="submitPrediction()">⚡ Predict</button>
+        <button class="btn-sample" onclick="fillSampleData()">📋 Load Sample</button>
+      </div>
+
+      <div id="predict-result" class="predict-result">
+        <span id="result-icon" class="result-icon"></span>
+        <div class="result-text">
+          <div id="result-model" class="result-label"></div>
+          <div id="result-verdict" class="result-value"></div>
+        </div>
+        <div class="result-conf">
+          <div id="result-conf-val" class="conf-val"></div>
+          <div class="conf-label">Confidence</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    Built with Flask &amp; Scikit-learn · Random Forest · KNN · SVM · Gradient Boosting
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
